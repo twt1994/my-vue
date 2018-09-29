@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 const API = {
-  // 获取验证码
+  // 获取验证码 成功
   getCode: (token, phone) => {
     return request({
       url: '/userInfo/getCode',
@@ -8,7 +8,7 @@ const API = {
       data: { token, phone }
     })
   },
-  // 登录
+  // 登录 成功
   handleLogin: (data) => {
     return request({
       url: '/userInfo/login',
@@ -16,7 +16,7 @@ const API = {
       data: data
     })
   },
-  // 注册
+  // 注册 成功
   goRegister: (phone, code, pwd) => {
     return request({
       url: '/userInfo/registerUserInfo',
@@ -24,7 +24,7 @@ const API = {
       data: { phone: phone, code: code, pwd: pwd }
     })
   },
-  // 提现
+  // 提现 
   putForward: (data) => {
     return request({
       url: '/rechargeRecord/putForward',
@@ -33,10 +33,28 @@ const API = {
       //          load:true
     })
   },
-  // 充值记录
+  // 充值记录列表
+  selectRecharge: (data) => {
+    return request({
+      url: '/rechargeRecord/selectRecharge ',
+      method: 'post',
+      data: data
+      //          load:true
+    })
+  },
+  // 充值/提现记录
   selectRechargeRecord: (data) => {
     return request({
       url: '/rechargeRecord/selectRechargeRecord',
+      method: 'post',
+      data: data
+      //          load:true
+    })
+  },
+  // 提现列表
+  selectPutForward: (data) => {
+    return request({
+      url: '/rechargeRecord/selectPutForward ',
       method: 'post',
       data: data
       //          load:true
@@ -51,6 +69,7 @@ const API = {
       //          load:true
     })
   },
+  // 用户列表
   selectUserInfo: (data) => {
     return request({
       url: '/userInfo/selectUserInfo',
@@ -59,7 +78,7 @@ const API = {
       //          load:true
     })
   },
-  // 获取用户信息
+  // 获取用户信息 成功
   getUserInfo: (data) => {
     return request({
       url: '/userInfo/getUserInfo',
@@ -68,7 +87,7 @@ const API = {
       //          load:true
     })
   },
-  // 修改密码
+  // 修改密码 成功
   modifyPassword: (data) => {
     return request({
       url: '/userInfo/modifyPassword ',
@@ -77,6 +96,7 @@ const API = {
       //          load:true
     })
   },
+  //找回密码 成功
   retrievePwd: (data) => {
     return request({
       url: '/userInfo/retrievePwd  ',
@@ -84,7 +104,16 @@ const API = {
       data: data
       //          load:true
     })
-  }
+  },
+//添加任务 成功
+addGoodsOrder: (data) => {
+  return request({
+    url: '/goodsOrder/addGoodsOrder   ',
+    method: 'post',
+    data: data
+    //          load:true
+  })
+}
 
 }
 

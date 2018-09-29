@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { setToken } from '@/utils/auth'
+import { setToken,setLoginData } from '@/utils/auth'
 import { isvalidUsername } from '@/utils/validate'
 import API from '@/utils/api'
 export default {
@@ -62,7 +62,7 @@ export default {
       }
     }
     return {
-      msg: {},
+      // msg: {},
       loginForm: {
         name: '',
         pwd: ''
@@ -110,9 +110,8 @@ export default {
           this.loading = false
           if (res.code === 200) {
             setToken(res.data.token)
+            setLoginData(res.data)
             console.log(res.data, 111111111)
-            this.msg = res.datathis.msg = res.data
-            // console.log(setToken(res.data.token, res.data))
             this.$router.push({
               path: this.redirect || '/'
             })

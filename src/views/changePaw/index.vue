@@ -20,9 +20,10 @@
 
 <script>
 import API from '@/utils/api'
+import { removeToken } from '@/utils/auth'
 import { isvalidUsername } from '@/utils/validate'
 // import router from './router'
-let vm
+// let vm
 export default {
   directives: {
     focus: {
@@ -83,7 +84,7 @@ export default {
     }
   },
   mounted() {
-    vm = this
+    // vm = this
   },
   methods: {
     modifyPassword() {
@@ -99,8 +100,13 @@ export default {
       })
       API.modifyPassword(this.ruleForm).then(res => {
         if (res.code === 200) {
-          console.log(res.data)
-          vm.$router.push('/login')
+          this.$message({
+            showClose: true,
+            message: res.message,
+            type: 'success'
+          })
+          removeToken()
+          this.$router.push('/login')
         } else {
           this.$message({
             showClose: true,
