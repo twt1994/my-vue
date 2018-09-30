@@ -24,7 +24,7 @@ const API = {
       data: { phone: phone, code: code, pwd: pwd }
     })
   },
-  // 提现 
+  // 提现
   putForward: (data) => {
     return request({
       url: '/rechargeRecord/putForward',
@@ -96,7 +96,7 @@ const API = {
       //          load:true
     })
   },
-  //找回密码 成功
+  // 找回密码 成功
   retrievePwd: (data) => {
     return request({
       url: '/userInfo/retrievePwd  ',
@@ -105,15 +105,24 @@ const API = {
       //          load:true
     })
   },
-//添加任务 成功
-addGoodsOrder: (data) => {
-  return request({
-    url: '/goodsOrder/addGoodsOrder   ',
-    method: 'post',
-    data: data
+  // 添加任务 成功
+  addGoodsOrder: (data) => {
+    return request({
+      url: '/goodsOrder/addGoodsOrder   ',
+      method: 'post',
+      data: data
     //          load:true
-  })
-}
+    })
+  },
+  // 帮助富文本
+  modifyHelpConfig: (data) => {
+    return request({
+      url: '/helpConfig/modifyHelpConfig    ',
+      method: 'post',
+      data: data
+    //          load:true
+    })
+  }
 
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <h3 class="title">后台管理</h3>
+      <h3 class="title">六六九海淘代购</h3>
       <el-form-item prop="name">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { setToken,setLoginData } from '@/utils/auth'
+import { setToken, setLoginData } from '@/utils/auth'
 import { isvalidUsername } from '@/utils/validate'
 import API from '@/utils/api'
 export default {
