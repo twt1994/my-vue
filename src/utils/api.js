@@ -114,6 +114,15 @@ const API = {
     //          load:true
     })
   },
+  // 查看帮助前台；
+  getHelpConfig: (data) => {
+    return request({
+      url: '/helpConfig/getHelpConfig',
+      method: 'post',
+      data: data
+    //          load:true
+    })
+  },
   // 帮助富文本
   modifyHelpConfig: (data) => {
     return request({

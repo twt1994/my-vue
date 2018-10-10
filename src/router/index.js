@@ -26,7 +26,6 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
   { path: '/register', component: () => import('@/views/register'), hidden: true },
   { path: '/forgetPaw', component: () => import('@/views/forgetPaw'), hidden: true },
-  
   {
     path: '/',
     component: Layout,
@@ -44,7 +43,7 @@ export const constantRouterMap = [
     redirect: '/financial/recharge',
     name: 'Financial',
     meta: { title: '财务管理', icon: 'example' },
-    children:[
+    children: [
     	{
         path: 'recharge',
         name: 'Recharge',
@@ -71,7 +70,7 @@ export const constantRouterMap = [
       }
     ]
   },
-	
+
   {
     path: '/user',
     component: Layout,
@@ -106,7 +105,7 @@ export const constantRouterMap = [
       }
     ]
   },
-{ path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 export default new Router({

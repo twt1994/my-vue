@@ -1,58 +1,59 @@
 <template>
-  <div class="helpCointer">
-    <div class="edit">
-      <Tinymce ref="editor" :height="500" v-model="formLabelAlign.msg" />
-    </div>
-    <el-button style="margin-top:30px;" type="primary" @click="onsubmit">提交</el-button>
+  <div class="dashboard-container">
+    <div class="dashboard-text">六六九海淘代购公告：</div>
+    <p style="margin-left:150px;">{{ userMsg.msg }}</p>
   </div>
 </template>
+
 <script>
-import Tinymce from '@/components/Tinymce' // 调用编辑器
 import API from '@/utils/api'
 export default {
-  components: {
-    // 使用编辑器
-    Tinymce
-  },
+  name: 'Dashboard',
   data() {
     return {
-      formLabelAlign: {
+      userMsg: {
+        createTime: '',
         id: '',
-        type: 'day',
         msg: ''
       }
     }
   },
-  computed: {
-    editor() {
-      return this.$refs.myTextEditor.Tinymce
-    }
+  mounted() {
+    this.getHelpConfig()
   },
   methods: {
-    onsubmit() {
-      this.modifyHelpConfig()
-    },
-    modifyHelpConfig() {
-      // const loginData = JSON.parse(getLoginData())
-      // this.tradeRecordForm.uid = loginData.id
-      API.modifyHelpConfig(this.formLabelAlign).then(res => {
-
+    getHelpConfig() {
+      API.getHelpConfig(this.userMsg).then(res => {
+        if (res.code === 200) {
+          console.log(res.data)
+          this.userMsg.createTime = res.data.createTime
+          this.userMsg.id = res.data.id
+          this.userMsg.msg = res.data.msg
+        } else {
+          this.$message({
+            showClose: true,
+            message: res.message,
+            type: 'warning'
+          })
+        }
+      }).catch(() => {
+        this.loading = false
       })
     }
   }
+
 }
 </script>
-<style>
-	.helpCointer{
-		padding-left:30px;
-		/*text-align:center;*/
-	}
-	.helpCointer .edit{
-		width:80%;
-		margin-top:60px;
 
-	}
-	.helpCointer .editor-custom-btn-container{
-		top:3px;
-	}
+<style rel="stylesheet/scss" lang="scss" scoped>
+.dashboard {
+  &-container {
+    margin: 30px;
+  }
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+    text-align: center;
+  }
+}
 </style>

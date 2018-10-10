@@ -2,7 +2,7 @@
   <div class="rechargeContainer">
     <h3>资金充值</h3>
     <el-form ref="form" :model="rechargeForm" label-width="80px">
-      <el-form-item label="充值数量">
+      <el-form-item label="充值数量" style="width:300px;">
         <el-input v-model="rechargeForm.amount"/>
       </el-form-item>
       <el-form-item label="充值方式">

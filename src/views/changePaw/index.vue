@@ -1,13 +1,13 @@
 <template>
   <div class="app-container">
     <el-form ref="ruleForm" :model="ruleForm" :rules="rules2" auto-complete="on" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="旧密码" prop="oldPwd">
+      <el-form-item label="旧密码" prop="oldPwd" style="width:300px;">
         <el-input v-model="ruleForm.oldPwd" type="password" auto-complete="on" />
       </el-form-item>
-      <el-form-item label="新密码" prop="newPwd">
+      <el-form-item label="新密码" prop="newPwd" style="width:300px;">
         <el-input v-model="ruleForm.newPwd" type="password" auto-complete="on" />
       </el-form-item>
-      <el-form-item label="确认密码" prop="newpass">
+      <el-form-item label="确认密码" prop="newpass" style="width:300px;">
         <el-input v-model="ruleForm.newpass" type="password" auto-complete="on" />
       </el-form-item>
       <el-form-item>
