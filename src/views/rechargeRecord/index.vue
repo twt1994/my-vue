@@ -2,10 +2,10 @@
   <div class="rechargeRecord">
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="开始时间">
-        <el-date-picker type="datetime" v-model="form.startTime" placeholder="选择日期" value-format="yyyy-MM-dd HH:mm:ss" @change="selectRechargeRecord"/>
+        <el-date-picker v-model="form.startTime" type="datetime" placeholder="选择日期" value-format="yyyy-MM-dd HH:mm:ss" @change="selectRechargeRecord"/>
       </el-form-item>
       <el-form-item label="结束时间">
-        <el-date-picker type="datetime" v-model="form.endTime" placeholder="选择日期" value-format="yyyy-MM-dd HH:mm:ss" @change="selectRechargeRecord"/>
+        <el-date-picker v-model="form.endTime" type="datetime" placeholder="选择日期" value-format="yyyy-MM-dd HH:mm:ss" @change="selectRechargeRecord"/>
       </el-form-item>
       <el-button style="margin-left:20px;" type="primary" @click="selectRechargeRecord">查询</el-button>
     </el-form>
@@ -42,12 +42,12 @@
     <el-pagination
       :current-page="form.current"
       :page-sizes="[30, 50, 100, 200]"
-      class="pagination"
       :page-size="form.size"
-      @size-change="handleSizeChange"
+      :total="total"
+      class="pagination"
       layout="total, sizes, prev, pager, next, jumper"
-      @current-change="handleCurrentChange"
-      :total="total"/>
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"/>
   </div>
 </template>
 

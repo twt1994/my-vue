@@ -51,6 +51,24 @@ const API = {
       //          load:true
     })
   },
+  //给订单付款
+  paymentGoodsOrder: (ids) => {
+    return request({
+      url: '/goodsOrder/paymentGoodsOrder ',
+      method: 'post',
+      data: {ids:ids}
+      //          load:true
+    })
+  },
+  //取消订单
+  cancelOrder: (orderNumber) => {
+    return request({
+      url: '/goodsOrder/cancelOrder ',
+      method: 'post',
+      data: {orderNumber:orderNumber}
+      //          load:true
+    })
+  },
   // 提现列表
   selectPutForward: (data) => {
     return request({
